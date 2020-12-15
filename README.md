@@ -10,7 +10,7 @@
 ---
 ## Introdução
 
-Este trabalho tem o intúito de apresentar alguns dos conteúdos estudados nesta disciplina durante este semestre, assim como, uma solução para a identificação de olhos (*eye tracking*) baseado em vídeo.
+Este projeto tem o objetivo de demonstrar os conhecimentos adquiridos na disciplina aplicando em um OCR (Optical-Character-Recognition), que identifica textos em imagens.
 
 ---
 ## Instruções para a execução
@@ -31,7 +31,7 @@ $ python ocr.py
 ## Programa
 Quando executado o código irá ler a imagem a seguir, transformá-la para escala de cinza, e então fazer o ORC retornando o texto *"KEEP CALM"*:
 
-![Janela da Aplicação](/texto.png)
+![Janela da Aplicação](/texto.jpg)
 
 ### Encerramento da aplicação
 Para encerrar a aplicação precione `ctrl + c` no terminal.
