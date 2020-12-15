@@ -1,14 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 14 20:40:10 2020
 
-@author: Antonio Adami
-"""
-
-# Importing the OCR library
-
-
-#Importing the libraries
+#Importando as bibliotecas
 import cv2
 import pytesseract
 
@@ -28,7 +19,7 @@ def image_to_string(
     timeout=0,
 ):
     """
-    Returns the result of a Tesseract OCR run on the provided image to string
+    Retorna o resultado de um Tesseract OCR
     """
     args = [image, 'txt', lang, config, nice, timeout]
 
@@ -38,15 +29,16 @@ def image_to_string(
         Output.STRING: lambda: pytesseract.run_and_get_output(*args),
     }[output_type]()
 
-# Specifying the path
-pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
-
-# Reading the image 
+# Lendo a imagem
 image = cv2.imread('texto.jpg')
 
-# Extraction of text from image
-text = image_to_string(image)
+# Transformando imagem para escala de cinza
+gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+gray, img_bin = cv2.threshold(gray,128,255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+gray = cv2.bitwise_not(img_bin)
 
-# Printing the text
+# Convertendo para texto
+text = image_to_string(gray)
+
 print(text)
 
